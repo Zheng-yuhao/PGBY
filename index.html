@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Google is a Excellent Search Engine</title>
+
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/style.css"/>
+
+    <script src="js/jquery.min.js"></script>
+    <!--    <script src="js/script.js"></script>-->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+<body>
+<section id="search">
+    <div class="search-header">
+        <h2>
+            <span class="let-me">You know, the</span>
+            <img src="favicon.ico" alt="G">
+            <span class="for-you">is a fantastic search engine.</span>
+        </h2>
+    </div>
+
+    <form id="search-form">
+        <div class="search-form-group">
+            <div class="search-form-input">
+                <input value="" type="search" id="kw" maxlength="255" autocomplete="off" required>
+            </div>
+            <button id="search-submit" type="button">Google</button>
+        </div>
+    </form>
+</section>
+
+
+<section id="function">
+    <p id="tips">Click me and I will tell you the Answer.</p>
+
+</section>
+
+<footer id="footer">
+    <ul class="footer-left">
+        <li><a href="" target="_blank">@furryup</a></li>
+
+    </ul>
+
+    <ul class="footer-right">
+        <li>* The site do not have any relationship with Google.</li>
+    </ul>
+</footer>
+
+<div id="arrow"></div>
+</body>
+
+
+<!--js-->
+<script>
+    $('#tips').click(function () {
+        var stepTimeout;
+        var $tips = $('#tips');
+        var $arrow = $('#arrow');
+        var $lh = $('#kw');
+        var $searchSubmit = $('#search-submit');
+
+        stepTimeout = setTimeout(function () {
+            $tips.html('1. Find the input form');
+
+            $arrow.removeClass('active').show().animate({
+                left: $lh.offset().left + 20 + 'px',
+                top: ($lh.offset().top + $lh.outerHeight() / 2 + 'px')
+            }, 2000, function () {
+                $tips.html('2. Input your question shortly or integrallty');
+                $arrow.addClass('active');
+
+
+            })
+
+            $arrow.removeClass('active').show(6000).animate({
+                left: $searchSubmit.offset().left + $searchSubmit.width() / 2 + 'px',
+                top: $searchSubmit.offset().top + $searchSubmit.height() / 2 + 'px'
+            }, 4000, function () {
+                $tips.html('3. Input Finished? Then click the Google Button.');
+                $arrow.addClass('active');
+            })
+
+            $searchSubmit.click(function () {
+                swal({
+                    title: "Congratulation, We will redirect you to the result page in 3 seconds.",
+                    text: "You can proud of yourself ! You can now use the excellent search engine by yourself! Go explore it!"
+                });
+                var params = document.getElementById('kw').value
+                var redirect = function () {
+                    window.location = 'https://www.google.com/search?q=' + params
+                }
+                setTimeout(redirect, 3000)
+            })
+        })
+    })
+</script>
+
+
+</html>
