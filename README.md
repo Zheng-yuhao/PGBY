@@ -11,3 +11,4 @@ push the search button or well, tell them there is a magic site called 'Google'.
 
 After the "Tutorial", they can be redirected to their result page.
 
+![Image text](https://github.com/hirrochi0211/PGBY/blob/master/Ggyy.gif)
